@@ -1,0 +1,122 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-f1e51ce8d094
+Exec   : decomposePar
+Date   : Nov 08 2019
+Time   : 18:14:32
+Host   : "dikshant-Lenovo-ideapad-Y700-15ISK"
+PID    : 24693
+I/O    : uncollated
+Case   : /home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+ Foam::decompositionMethod::New 
+{
+    numberOfSubdomains 6;
+    method          scotch;
+}
+
+Selecting decompositionMethod scotch
+
+Finished decomposition in 0.03 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 4037
+    Number of faces shared with processor 1 = 122
+    Number of processor patches = 1
+    Number of processor faces = 122
+    Number of boundary faces = 8260
+
+Processor 1
+    Number of cells = 3963
+    Number of faces shared with processor 0 = 122
+    Number of faces shared with processor 2 = 124
+    Number of processor patches = 2
+    Number of processor faces = 246
+    Number of boundary faces = 7996
+
+Processor 2
+    Number of cells = 4000
+    Number of faces shared with processor 1 = 124
+    Number of faces shared with processor 4 = 59
+    Number of faces shared with processor 5 = 61
+    Number of processor patches = 3
+    Number of processor faces = 244
+    Number of boundary faces = 8064
+
+Processor 3
+    Number of cells = 4000
+    Number of faces shared with processor 4 = 63
+    Number of faces shared with processor 5 = 61
+    Number of processor patches = 2
+    Number of processor faces = 124
+    Number of boundary faces = 8188
+
+Processor 4
+    Number of cells = 3974
+    Number of faces shared with processor 2 = 59
+    Number of faces shared with processor 3 = 63
+    Number of faces shared with processor 5 = 132
+    Number of processor patches = 3
+    Number of processor faces = 254
+    Number of boundary faces = 7948
+
+Processor 5
+    Number of cells = 4026
+    Number of faces shared with processor 2 = 61
+    Number of faces shared with processor 3 = 61
+    Number of faces shared with processor 4 = 132
+    Number of processor patches = 3
+    Number of processor faces = 254
+    Number of boundary faces = 8184
+
+Number of processor faces = 622
+Max number of cells = 4037 (0.925% above average 4000)
+Max number of processor patches = 3 (28.5714% above average 2.33333)
+Max number of faces between processors = 254 (22.508% above average 207.333)
+
+Time = 0
+
+Processor 0: field transfer
+Detected additional non-decomposed files in "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/0/uniform"
+Processor 1: field transfer
+Detected additional non-decomposed files in "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/0/uniform"
+Processor 2: field transfer
+Detected additional non-decomposed files in "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/0/uniform"
+Processor 3: field transfer
+Detected additional non-decomposed files in "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/0/uniform"
+Processor 4: field transfer
+Detected additional non-decomposed files in "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/0/uniform"
+Processor 5: field transfer
+Detected additional non-decomposed files in "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/0/uniform"
+
+End
+

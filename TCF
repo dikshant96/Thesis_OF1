@@ -1,0 +1,61 @@
+from functions.fluid_basic_functions import *
+from Classes.Fluid import *
+import os
+from functions.postprocess_OF import *
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+air = Fluid(1.800e-05, 1.0, 2.000e-05, 0.71)
+Re = 13350
+L = 2
+h = L/2.
+air.nu = 2e-05
+Ub = get_meanvelocity(Re, air.nu, L)
+I: float = 5 / 100.
+k = get_turbkineticenergy(Ub, I)
+epsilon = get_epsilon(k, h)
+omega = get_omega(k, epsilon)
+nut = get_nutkOmega(k, omega)
+
+' Post Processing '
+dir_of = os.getcwd()
+case = dir_of + '/OpenFoam_Cases/Channel_14124_M3'
+time = '100000'
+
+pos_centres = get_flowfieldvector(case, time, 'C')
+pos_bottomWall = get_boundaryvector1D(case, time, 'bottomWall', 'C')
+U_centres = get_flowfieldvector(case, time, 'U')
+k_centres = get_flowfieldscalar(case, time, 'k')
+omega_centres = get_flowfieldscalar(case, time, 'omega')
+nut_centres = get_flowfieldscalar(case, time, 'nut')
+wallShearStress_bottomWall = get_boundaryvector1D(case, time, 'bottomWall', 'wallShearStress')
+wallShearStress_topWall = get_boundaryvector1D(case, time, 'topWall', 'wallShearStress')
+yPlus_bottomWall = get_boundaryscalar1D(case, time, 'bottomWall', 'yPlus')
+yPlus_topWall = get_boundaryscalar1D(case, time, 'topWall', 'yPlus')
+
+
+y_x, U_x = get_probexvalues(pos_centres, 0.05, 'y', U_centres[:, 0])
+_, U_y = get_probexvalues(pos_centres, 0.05, 'y', U_centres[:, 1])
+_, U_z = get_probexvalues(pos_centres, 0.05, 'y', U_centres[:, 2])
+
+wallShearStress_bottomWall_mag = get_magvector(wallShearStress_bottomWall)
+wallShearStress_bottomWall_avg = np.average(wallShearStress_bottomWall_mag)
+
+u_tau = np.sqrt(wallShearStress_bottomWall_avg/air.rho)
+Re_tau = (u_tau*h)/air.nu
+u_plus = U_x/u_tau
+y_plus = (y_x*u_tau)/air.nu
+
+
+'Read Reference Data'
+dir_of = os.getcwd()
+df = pd.read_csv(dir_of+'/Reference_data/'+'Utexas_channel_Re395')
+df2 = pd.read_csv(dir_of+'/Reference_data/'+'Kawamura_channel_Re395')
+
+
+plt.plot(df.y_plus, df.u_mean)
+plt.plot(df2.y_plus, df2.u_mean)
+plt.scatter(y_plus, u_plus, c='r', s=2)
+plt.xscale('log')
+plt.show()

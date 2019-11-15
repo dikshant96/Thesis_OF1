@@ -1,0 +1,149 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+13
+(
+    bottomWall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          0;
+        startFace       7821;
+    }
+    topWall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          0;
+        startFace       7821;
+    }
+    sides1_half0
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          3974;
+        startFace       7821;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  sides1_half1;
+    }
+    sides1_half1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          3974;
+        startFace       11795;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  sides1_half0;
+    }
+    sides2_half0
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          0;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  sides2_half1;
+    }
+    sides2_half1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          0;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  sides2_half0;
+    }
+    inout1_half0
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          0;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout1_half1;
+    }
+    inout1_half1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          0;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout1_half0;
+    }
+    inout2_half0
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          0;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout2_half1;
+    }
+    inout2_half1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          0;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout2_half0;
+    }
+    procBoundary4to2
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          59;
+        startFace       15769;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        4;
+        neighbProcNo    2;
+    }
+    procBoundary4to3
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          63;
+        startFace       15828;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        4;
+        neighbProcNo    3;
+    }
+    procBoundary4to5
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          132;
+        startFace       15891;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        4;
+        neighbProcNo    5;
+    }
+)
+
+// ************************************************************************* //

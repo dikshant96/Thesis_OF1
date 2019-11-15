@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+10
+(
+    bottomWall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1;
+        startFace       599;
+    }
+    topWall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1;
+        startFace       600;
+    }
+    sides1_half0
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          300;
+        startFace       601;
+    }
+    sides1_half1
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          300;
+        startFace       901;
+    }
+    sides2_half0
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          300;
+        startFace       1201;
+    }
+    sides2_half1
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          300;
+        startFace       1501;
+    }
+    inout1_half0
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          300;
+        startFace       1801;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout1_half1;
+    }
+    inout1_half1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          300;
+        startFace       2101;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout1_half0;
+    }
+    inout2_half0
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          300;
+        startFace       2401;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout2_half1;
+    }
+    inout2_half1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          300;
+        startFace       2701;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inout2_half0;
+    }
+)
+
+// ************************************************************************* //

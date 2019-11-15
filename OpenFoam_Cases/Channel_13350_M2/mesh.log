@@ -1,0 +1,84 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-f1e51ce8d094
+Exec   : blockMesh
+Date   : Nov 08 2019
+Time   : 18:14:18
+Host   : "dikshant-Lenovo-ideapad-Y700-15ISK"
+PID    : 24687
+I/O    : uncollated
+Case   : /home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/home/dikshant/Desktop/ThesisOF_1/OpenFoam_Cases/Channel_13350_M2/system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 1
+		Number of boundary faces : 10
+		Number of defined boundary faces : 10
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.05 .. 0.05
+        j : 0.00253075 .. 0.0255606
+        k : 0.2
+    Block 1 cell size :
+        i : 0.05 .. 0.05
+        j : 0.0254794 .. 0.00254794
+        k : 0.2
+
+Detected cyclic patches; ordering boundary faces
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 0 -0.1) (6 2 0.1)
+  nPoints: 48642
+  nCells: 24000
+  nFaces: 96320
+  nInternalFaces: 47680
+----------------
+Patches
+----------------
+  patch 0 (start: 47680 size: 120) name: bottomWall
+  patch 1 (start: 47800 size: 120) name: topWall
+  patch 2 (start: 47920 size: 12000) name: sides1_half0
+  patch 3 (start: 59920 size: 12000) name: sides1_half1
+  patch 4 (start: 71920 size: 12000) name: sides2_half0
+  patch 5 (start: 83920 size: 12000) name: sides2_half1
+  patch 6 (start: 95920 size: 100) name: inout1_half0
+  patch 7 (start: 96020 size: 100) name: inout1_half1
+  patch 8 (start: 96120 size: 100) name: inout2_half0
+  patch 9 (start: 96220 size: 100) name: inout2_half1
+
+End
+
